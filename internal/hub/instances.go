@@ -51,7 +51,7 @@ func GetInstance() *Instance {
 //FetchJwks fetches a jwks.json file and parses it
 func (i *Instance) FetchJwks() (jose.JSONWebKeySet, error) {
 	// fetch jwks.json file from URL
-	resp, err := http.Get(i.JwksURL)
+	resp, err := client().Get(i.JwksURL)
 	if err != nil {
 		return jose.JSONWebKeySet{}, fmt.Errorf("failed to fetch JWKS: %s", err)
 	}

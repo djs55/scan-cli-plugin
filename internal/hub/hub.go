@@ -82,7 +82,7 @@ func (h *Client) GetScanID(hubToken string) (string, error) {
 
 func doRequest(req *http.Request) ([]byte, error) {
 	req.Header["Accept"] = []string{"application/json"}
-	resp, err := http.DefaultClient.Do(req)
+	resp, err := client().Do(req)
 	if err != nil {
 		return nil, err
 	}
